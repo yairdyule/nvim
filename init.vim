@@ -86,9 +86,6 @@ nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
 
-" sneak
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
 
 " which key
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR
