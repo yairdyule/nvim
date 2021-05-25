@@ -10,9 +10,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     "emmet 
     Plug 'mattn/emmet-vim'
+
     " things in gutter
     Plug 'airblade/vim-gitgutter'
-
 
     " best theme
     Plug 'gruvbox-community/gruvbox'
@@ -30,6 +30,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
+    "git vim integration
     Plug 'tpope/vim-fugitive'
 
     " thin lines to indicate indents
@@ -41,9 +42,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " perform insert mode completions with tab
     Plug 'ervandew/supertab'
 
-
-    " Use release branch (recommend)
-"    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " code formatting
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
     " dank fuzzy finder
     Plug 'nvim-lua/popup.nvim'
@@ -69,15 +69,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     "snippets for lsp
     Plug 'norcalli/snippets.nvim'
-    "color previews
-    "Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
     " highlight other uses of words under the cursor
     Plug 'RRethy/vim-illuminate'
 
-    " sneak
-    Plug 'justinmk/vim-sneak'
-    
     " which key
     Plug 'liuchengxu/vim-which-key'
 
@@ -92,5 +87,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     "zen mode lul
     Plug 'folke/zen-mode.nvim'
+
+    " better 'f'ing
+    Plug 'rhysd/clever-f.vim'
+
+    "inline colorizing
+    Plug 'norcalli/nvim-colorizer.lua'
+
+    "show context for cursor position
+    Plug 'wellle/context.vim'
 
     call plug#end()

@@ -2,10 +2,8 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 
 let mapleader = ","
 let g:airline_theme='deus'
-" let g:ale_sign_column_always = 1
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
 
+set termguicolors
 set number relativenumber
 set nohlsearch
 set incsearch
@@ -33,8 +31,12 @@ else
   set signcolumn=yes
 endif
 
-" create prettier command
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" when running at every change you may want to disable quickfix
+" let g:prettier#quickfix_enabled = 0
+
+" prettier autoformat when leaving insert mode
+autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
 
 " necessary for nvim-compe
 set completeopt=menuone,noselect
@@ -53,7 +55,6 @@ let g:compe.max_abbr_width = 100
 let g:compe.max_kind_width = 100
 let g:compe.max_menu_width = 100
 let g:compe.documentation = v:true
-
 let g:compe.source = {}
 let g:compe.source.path = v:true
 let g:compe.source.buffer = v:true
@@ -105,7 +106,12 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
+"setup colorizer
+lua require'colorizer'.setup()
 
+"clever f 
+let g:clever_f_across_no_line = 0 " search across lines
+let g:clever_f_ignore_case = 1    " case insensitive f'ing
 
 " potentially need to setup devicons
 " getting ts server to work w/ lsp
