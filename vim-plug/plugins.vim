@@ -66,18 +66,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " ultisnips
     Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 
     "snippets for lsp
     Plug 'norcalli/snippets.nvim'
 
     " highlight other uses of words under the cursor
     Plug 'RRethy/vim-illuminate'
-
-    " which key
-    Plug 'liuchengxu/vim-which-key'
-
-    " On-demand lazy load
-    Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
     
     "easy motion
     Plug 'easymotion/vim-easymotion'
@@ -96,5 +91,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     "show context for cursor position
     Plug 'wellle/context.vim'
+
+    " old react snippets
+    Plug 'epilande/vim-es2015-snippets'
+
+    " React code snippets
+    Plug 'epilande/vim-react-snippets'
+
+    Plug 'folke/which-key.nvim'
+
+    Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
     call plug#end()

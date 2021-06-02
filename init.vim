@@ -2,7 +2,8 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 
 let mapleader = ","
 let g:airline_theme='deus'
-
+set ignorecase
+set smartcase
 set termguicolors
 set number relativenumber
 set nohlsearch
@@ -35,7 +36,8 @@ endif
 " let g:prettier#quickfix_enabled = 0
 
 " prettier autoformat when leaving insert mode
-autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+" autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+let g:prettier#quickfix_auto_focus = 0 " disable autofocus on quickfix menu
 
 
 " necessary for nvim-compe
@@ -69,6 +71,13 @@ inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+
+" UltiSnips mappings
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 
 " Find files using Telescope command-line sugar.
@@ -113,7 +122,36 @@ lua require'colorizer'.setup()
 let g:clever_f_across_no_line = 0 " search across lines
 let g:clever_f_ignore_case = 1    " case insensitive f'ing
 
-" potentially need to setup devicons
+
+
+"which key setup
+lua << EOF
+  require("which-key").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
+
+" devicons setup
+
+lua << EOF
+require'nvim-web-devicons'.setup {
+ -- your personnal icons can go here (to override)
+ -- DevIcon will be appended to `name`
+ override = {
+  zsh = {
+    icon = "",
+    color = "#428850",
+    name = "Zsh"
+  }
+ };
+ -- globally enable default icons (default to false)
+ -- will get overriden by `get_icons` option
+ default = true;
+}
+EOF
+
 " getting ts server to work w/ lsp
 lua require('lspconfig').tsserver.setup{}
 
@@ -166,3 +204,7 @@ lua << EOF
 EOF
 
 let g:user_emmet_leader_key=',' " set emmet leader key .
+
+autocmd Filetype tex setl updatetime=1
+
+let g:livepreview_previewer = 'open -a Preview'
