@@ -8,6 +8,12 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+    "cool startup page
+    Plug 'mhinz/vim-startify'
+
+    "vim notes
+    Plug 'vimwiki/vimwiki'
+
     "emmet 
     Plug 'mattn/emmet-vim'
 

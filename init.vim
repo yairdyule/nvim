@@ -1,7 +1,11 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
+set nocompatible
+filetype plugin on
+syntax on
 let mapleader = ","
 let g:airline_theme='deus'
+let g:EasyMotion_smartcase = 1
 set ignorecase
 set smartcase
 set termguicolors
@@ -15,6 +19,10 @@ set shiftwidth=2
 set expandtab
 set smartindent
 set signcolumn=yes
+au BufEnter * set fo-=c fo-=r fo-=o                     " stop annoying auto commenting on new lines
+au FileType help wincmd L                               " open help in vertical split
+au BufWritePre * :%s/\s\+$//e                           " remove trailing whitespaces before saving
+nnoremap ; :
 
 colorscheme gruvbox
 
@@ -104,6 +112,7 @@ nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR
 " vim easy motion
 
 " <Leader>f{char} to move to {char}
+map <Leader> <Plug>(easymotion-prefix)
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 " s{char}{char} to move to {char}{char}
@@ -118,7 +127,7 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 "setup colorizer
 lua require'colorizer'.setup()
 
-"clever f 
+"clever f
 let g:clever_f_across_no_line = 0 " search across lines
 let g:clever_f_ignore_case = 1    " case insensitive f'ing
 
@@ -164,7 +173,7 @@ lua << EOF
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-require'lspconfig'.cssls.setup { --css 
+require'lspconfig'.cssls.setup { --css
   capabilities = capabilities,
 }
 
