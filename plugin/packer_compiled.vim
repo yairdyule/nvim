@@ -72,21 +72,61 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+  },
+  ["galaxyline.nvim"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+  },
   ["gruvbox-flat.nvim"] = {
     loaded = true,
     path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/gruvbox-flat.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
   },
   neoformat = {
     loaded = true,
     path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/neoformat"
   },
+  ["neoscroll.nvim"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
+  },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+  },
+  ["nvim-bufferline.lua"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
+  },
   ["nvim-colorizer.lua"] = {
     loaded = true,
     path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
   },
+  ["nvim-comment"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/nvim-comment"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["nvim-lspinstall"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -108,6 +148,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["startuptime.vim"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/startuptime.vim"
+  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim"
@@ -116,9 +160,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
-  ["vim-devicons"] = {
+  ["vim-closetag"] = {
     loaded = true,
-    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/vim-devicons"
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/vim-closetag"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/Users/jaredjewell/.local/share/nvim/site/pack/packer/start/which-key.nvim"
   }
 }
 
