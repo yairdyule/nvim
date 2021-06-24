@@ -11,6 +11,9 @@ return packer.startup(
 		use "nvim-treesitter/nvim-treesitter"
 		use "norcalli/nvim-colorizer.lua"
     use "akinsho/nvim-bufferline.lua"
+    use "siduck76/nvim-base16.lua"
+    use "dawikur/base16-gruvbox-scheme"
+    
 		use "glepnir/galaxyline.nvim"
 		use "lewis6991/gitsigns.nvim"
 		use "glepnir/dashboard-nvim"
