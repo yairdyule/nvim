@@ -9,7 +9,7 @@ o.smartcase = true
 
 o.number = true
 o.relativenumber = true
-o.signcolumn = "number"
+o.signcolumn = "yes"
 
 o.hlsearch = false
 o.incsearch = true
