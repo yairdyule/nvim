@@ -1,27 +1,26 @@
-require "mappings"
 require "plugins"
 require "settings"
-require "telescope_config"
+
 require "treesitter_config"
 require "dashboard_config"
 require "lspconfig"
 require "compe_config"
-
 require "emmet_config"
 require "indentline_config"
 require "bufferline_config"
 require "statusline_config"
-require ("nvim-autopairs").setup()
-require ("neoscroll").setup()
-require ("nvim_comment").setup()
+require "nvim-autopairs".setup()
+require "neoscroll".setup()
+require "nvim_comment".setup()
 require "trouble".setup()
-
-local cmd = vim.cmd
 local g = vim.g
-local base16 = require "base16"
-
 g.mapleader = ","
 g.maplocalleader = ","
+require "mappings".config()
+
+local cmd = vim.cmd
+local base16 = require "base16"
+
 g.base16_transparent_background = 1
 
 cmd "syntax on"
