@@ -1,6 +1,7 @@
 local packer = require "packer"
 local use = packer.use
 
+
 return packer.startup(
 	function()
 		use "wbthomason/packer.nvim"
@@ -17,6 +18,9 @@ return packer.startup(
 		use "glepnir/galaxyline.nvim"
     use {
             "lewis6991/gitsigns.nvim",
+            requires = {
+              'nvim-lua/plenary.nvim'
+            },
             event = "BufRead",
             config = function()
                 require("gitsigns_config").config()
@@ -31,9 +35,19 @@ return packer.startup(
     use "folke/trouble.nvim"
 
 		use "sbdchd/neoformat"
-		use "nvim-telescope/telescope.nvim"
-		use "nvim-telescope/telescope-media-files.nvim"
-		use "nvim-lua/popup.nvim"
+		use {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+                {"nvim-lua/popup.nvim"},
+                {"nvim-lua/plenary.nvim"},
+                {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
+                {"nvim-telescope/telescope-media-files.nvim"}
+      },
+      cmd = "Telescope",
+            config = function()
+                require("telescope_config").config()
+            end
+    }
 
     use "mattn/emmet-vim"
 		use "windwp/nvim-autopairs"
@@ -49,7 +63,7 @@ return packer.startup(
 
 
 		use "folke/which-key.nvim"
-		use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
+		use {"lukas-reineke/indent-blankline.nvim"}
 
     use "tpope/vim-fugitive"
 
