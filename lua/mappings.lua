@@ -1,3 +1,6 @@
+local M = {}
+
+M.config = function()
 -- maps lhs to rhs in mode w/ the given options
 local function map(mode, lhs, rhs, opts)
 	local options = {noremap = true}
@@ -26,3 +29,7 @@ map("n", "<Leader>fh", [[<Cmd>Telescope help_tags<CR>]], opt)
 map("n", "<Leader>fo", [[<Cmd>Telescope oldfiles<CR>]], opt)
 
 map("n", ";", [[:]])
+
+end
+
+return M
