@@ -13,8 +13,15 @@ return packer.startup(
     use "akinsho/nvim-bufferline.lua"
     use "siduck76/nvim-base16.lua"
     use "dawikur/base16-gruvbox-scheme"
+		use "nvim-lua/plenary.nvim"
 		use "glepnir/galaxyline.nvim"
-		use "lewis6991/gitsigns.nvim"
+    use {
+            "lewis6991/gitsigns.nvim",
+            event = "BufRead",
+            config = function()
+                require("gitsigns_config").config()
+            end
+        }
 		use "glepnir/dashboard-nvim"
 		use "karb94/neoscroll.nvim"
 
@@ -24,7 +31,6 @@ return packer.startup(
     use "folke/trouble.nvim"
 
 		use "sbdchd/neoformat"
-		use "nvim-lua/plenary.nvim"
 		use "nvim-telescope/telescope.nvim"
 		use "nvim-telescope/telescope-media-files.nvim"
 		use "nvim-lua/popup.nvim"

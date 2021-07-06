@@ -15,4 +15,14 @@ map("n", "<C-h>", [[<C-w>h]])
 map("n", "<C-j>", [[<C-w>j]])
 map("n", "<C-k>", [[<C-w>k]])
 
+-- Telescope
+map("n", "<Leader>gt", [[<Cmd> Telescope git_status <CR>]], opt)
+map("n", "<Leader>cm", [[<Cmd> Telescope git_commits <CR>]], opt)
+map("n", "<Leader>ff", [[<Cmd> Telescope find_files <CR>]], opt)
+map("n", "<Leader>fg", [[<Cmd> Telescope live_grep <CR>]], opt)
+map("n", "<Leader>fp", [[<Cmd>lua require('telescope').extensions.media_files.media_files()<CR>]], opt)
+map("n", "<Leader>fb", [[<Cmd>Telescope buffers<CR>]], opt)
+map("n", "<Leader>fh", [[<Cmd>Telescope help_tags<CR>]], opt)
+map("n", "<Leader>fo", [[<Cmd>Telescope oldfiles<CR>]], opt)
+
 map("n", ";", [[:]])
