@@ -13,8 +13,19 @@ return packer.startup(
 		use "norcalli/nvim-colorizer.lua"
     use "akinsho/nvim-bufferline.lua"
     use "siduck76/nvim-base16.lua"
-    use "dawikur/base16-gruvbox-scheme"
+    use 'xiyaowong/nvim-transparent'
+    -- use "dawikur/base16-gruvbox-scheme"
 		use "nvim-lua/plenary.nvim"
+    use {
+        "folke/zen-mode.nvim",
+      config = function()
+        require("zen-mode").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+        end
+    }
 		use "glepnir/galaxyline.nvim"
     use {
             "lewis6991/gitsigns.nvim",
@@ -62,11 +73,19 @@ return packer.startup(
 		use "tweekmonster/startuptime.vim"
 
 
-		use "folke/which-key.nvim"
 		use {"lukas-reineke/indent-blankline.nvim"}
 
     use "tpope/vim-fugitive"
 
+    use "sheerun/vim-polyglot"
+    use "sirver/ultisnips"
+    use "lervag/vimtex"
+    use "honza/vim-snippets"
+
+
+
+
 
 	end
 )
+

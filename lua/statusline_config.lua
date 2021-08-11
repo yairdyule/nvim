@@ -2,13 +2,24 @@ local gl = require("galaxyline")
 local gls = gl.section
 local condition = require("galaxyline.condition")
 local colors = require "themes/gruv"
+local modeColors = {
+    n = colors.bright_red,
+    i = colors.bright_green,
+    c = colors.bright_blue,
+    [""] = colors.bright_red,
+    V = colors.bright_red,
+    v = colors.bright_red,
+    R = colors.bright_red
+}
 
 gl.short_line_list = {" "}
 
 gls.left[1] = {
   FirstElement = {
-    provider = function() return '▋' end,
-    highlight = { colors.bright_aqua, colors.bright_aqua }
+    -- provider = function() return '▋' end,
+    provider = function() return ' ' end,
+    highlight = { colors.bright_red, colors.bright_red}
+    
   },
 }
 
@@ -17,9 +28,9 @@ gls.left[2] = {
         provider = function()
             return "  "
         end,
-        highlight = {colors.dark0, colors.bright_aqua},
-        separator = "  ",
-        separator_highlight = {colors.bright_aqua, colors.dark0}
+        highlight = {colors.dark0, colors.bright_red},
+        separator = " ",
+        separator_highlight = {colors.bright_red, colors.dark0}
     }
 }
 
@@ -38,7 +49,7 @@ gls.left[4] = {
         provider = {"FileName"},
         condition = condition.buffer_not_empty,
         highlight = {colors.gray, colors.dark0},
-        separator = " ",
+        separator = "",
         separator_highlight = {colors.dark0, colors.dark1}
     }
 }
@@ -65,16 +76,38 @@ local checkwidth = function()
     return false
 end
 
-gls.left[6] = {
-    DiffAdd = {
-        provider = "DiffAdd",
-        condition = checkwidth,
-        icon = "  ",
-        highlight = {colors.gray, colors.dark0}
+-- git
+-- curve
+--
+gls.mid[0] = {
+    GitIcon = {
+        provider = function()
+            return " "
+        end,
+        condition = require("galaxyline.provider_vcs").check_git_workspace,
+        highlight = {colors.bright_red, colors.dark0},
+        separator = " ",
+        separator_highlight = {colors.gray, colors.dark0}
     }
 }
 
-gls.left[7] = {
+gls.mid[1] = {
+    GitBranch = {
+        provider = "GitBranch",
+        condition = require("galaxyline.provider_vcs").check_git_workspace,
+        highlight = {colors.gray, colors.dark0},
+    }
+}
+gls.mid[2] = {
+    DiffAdd = {
+        provider = "DiffAdd",
+        condition = checkwidth,
+        icon = "   ",
+        highlight = {colors.neutral_green, colors.dark0}
+    }
+}
+
+gls.mid[3] = {
     DiffModified = {
         provider = "DiffModified",
         condition = checkwidth,
@@ -83,28 +116,12 @@ gls.left[7] = {
     }
 }
 
-gls.left[8] = {
+gls.mid[4] = {
     DiffRemove = {
         provider = "DiffRemove",
         condition = checkwidth,
-        icon = "  ",
-        highlight = {colors.gray, colors.dark0}
-    }
-}
-
-gls.left[9] = {
-    DiagnosticError = {
-        provider = "DiagnosticError",
-        icon = "  ",
+        icon = "   ",
         highlight = {colors.bright_red, colors.dark0}
-    }
-}
-
-gls.left[10] = {
-    DiagnosticWarn = {
-        provider = "DiagnosticWarn",
-        icon = "  ",
-        highlight = {colors.bright_yellow, colors.dark0}
     }
 }
 
@@ -118,40 +135,39 @@ gls.right[1] = {
                 return ""
             end
         end,
-        highlight = {colors.bright_orange, colors.dark0}
+        highlight = {colors.bright_red, colors.dark0}
     }
 }
 
--- git
--- curve
+
 gls.right[2] = {
-    GitIcon = {
-        provider = function()
-            return " "
-        end,
-        condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = {colors.bright_aqua, colors.dark1},
-        separator = "",
-        separator_highlight = {colors.dark1, colors.dark0}
+    DiagnosticError = {
+        provider = "DiagnosticError",
+        icon = "  ",
+        highlight = {colors.bright_red, colors.dark0}
     }
 }
 
 gls.right[3] = {
-    GitBranch = {
-        provider = "GitBranch",
-        condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = {colors.bright_aqua, colors.dark1},
+    DiagnosticWarn = {
+        provider = "DiagnosticWarn",
+        icon = "  ",
+        highlight = {colors.neutral_yellow, colors.dark0}
     }
 }
 
+-- 
 gls.right[4] = {
     viMode_icon = {
         provider = function()
-            return " "
+            return "␥ "
         end,
-        highlight = {colors.dark0, colors.neutral_red},
-        separator = " ",
-        separator_highlight = {colors.neutral_red, colors.dark1}
+        -- highlight = {colors.dark0, modeColors[vim.fn.mode()]},
+        -- separator = " ",
+        -- separator_highlight = {modeColors[vim.fn.mode()], colors.dark1}
+        separator = "",
+        separator_highlight = {colors.bright_red, colors.bright_red},
+        highlight = {colors.dark0, colors.bright_red}
     }
 }
 
@@ -169,13 +185,17 @@ gls.right[5] = {
             }
             local current_Mode = alias[vim.fn.mode()]
 
+            -- print(vim.fn.mode())
+            -- print(" " .. modeColors[vim.fn.mode()] .. " ")
+            -- print(type(colors.dark1))
+
             if current_Mode == nil then
                 return "  Terminal "
             else
                 return "  " .. current_Mode .. " "
             end
         end,
-        highlight = {colors.bright_red, colors.dark1}
+        highlight = {colors.gray, colors.dark0}
     }
 }
 
@@ -184,9 +204,10 @@ gls.right[6] = {
         provider = function()
             return " "
         end,
-        separator = "",
-        separator_highlight = {colors.bright_aqua, colors.dark1},
-        highlight = {colors.dark0, colors.bright_aqua}
+        -- separator = " ",
+        separator = "",
+        separator_highlight = {colors.bright_red, colors.bright_red},
+        highlight = {colors.dark0, colors.bright_red}
     }
 }
 
@@ -204,6 +225,6 @@ gls.right[7] = {
             local result, _ = math.modf((current_line / total_line) * 100)
             return "  " .. result .. "% "
         end,
-        highlight = {colors.bright_aqua, colors.dark1}
+        highlight = {colors.gray, colors.dark0}
     }
 }

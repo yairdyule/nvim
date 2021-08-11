@@ -1,0 +1,38 @@
+snippet beg "environment"
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet lst "begin itemized list"
+\vspace{-2mm}
+\begin{itemize} \setlength\itemsep{-0.3em}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet bf "textbf"
+\textbf{$0}
+endsnippet
+
+snippet vs "vspace"
+\vspace{$0}
+endsnippet
+
+snippet tex "boiler"
+\documentclass[12pt]{article}
+%\usepackage[top=.25in, bottom=1.25in, left=.25in, right=.5in]{geometry}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+
+\begin{document}
+$0
+\end{document}
+endsnippet
+
+
+snippet aparef "generate an apa template"
+${0: Last Name}, ${1: First Initial}. ${2: Second Initial}. (${3:Year}). ${4:Article title}. ${5: Name of Journal}, ${6:Volume No.}(${7:Issue No.}), ${8: first pg. no - last pg. no}. https://doi.org/${9: doi number}
+
+endsnippet
+	

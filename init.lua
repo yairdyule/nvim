@@ -13,19 +13,24 @@ require "nvim-autopairs".setup()
 require "neoscroll".setup()
 require "nvim_comment".setup()
 require "trouble".setup()
+require "ultisnips_config".config()
+require "tex_config".config()
+
 local g = vim.g
 g.mapleader = ","
 g.maplocalleader = ","
+
 require "mappings".config()
+require "transparent_config".config()
 
 local cmd = vim.cmd
 local base16 = require "base16"
 
-g.base16_transparent_background = 1
 
 cmd "syntax on"
 
-base16(base16.themes["gruvbox-dark-pale"], true)
+-- base16(base16.themes["gruvbox-dark-pale"], true)
+g.base16_transparent_background = 1
 
 -- vim.lsp.set_log_level("debug")
 local function setup_servers()
@@ -143,8 +148,6 @@ nvim_lsp.diagnosticls.setup {
     init_options = {
         filetypes = filetypes,
         linters = linters,
-        formatters = formatters,
-        formatFiletypes = formatFiletypes
     }
 }
 
